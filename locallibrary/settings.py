@@ -26,9 +26,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fk3lcd9)7tb$oe38+5us26-q0(e%@_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False' #not making DEBUG = False
-DEBUG = False
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'True' #assume should set to true but didn't 
+DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'False' #not making DEBUG = False unless use '==' in place of '!='
+#DEBUG = os.environ.get('DJANGO_DEBUG', False) # also orrect to express above this way, which is best practise
+
 
 ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com',]
 
@@ -124,7 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
@@ -135,11 +143,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
 
-# The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
