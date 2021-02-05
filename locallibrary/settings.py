@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fk3lcd9)7tb$oe38+5us26-q0(e%@_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False' #not making DEBUG = False
+DEBUG = False
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'True' #assume should set to true but didn't 
 
 ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com',]
 
