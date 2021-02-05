@@ -26,11 +26,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fk3lcd9)7tb$oe38+5us26-q0(e%@_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'False' #not making DEBUG = False unless use '==' in place of '!='
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False' #not making DEBUG = False unless use '==' in place of '!='
 #DEBUG = os.environ.get('DJANGO_DEBUG', False) # also orrect to express above this way, which is best practise
 
 
-ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com',]
+ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
