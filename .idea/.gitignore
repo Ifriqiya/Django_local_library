@@ -8,3 +8,4 @@
 *.sqlite3
 /db.sqlite3
 /.idea
+!locallibrary/__pycache__
