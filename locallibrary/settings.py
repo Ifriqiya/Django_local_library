@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'False' #not making DEBUG = False 
 #DEBUG = os.environ.get('DJANGO_DEBUG', False) # also orrect to express above this way, which is best practise
 
 
-ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com']
+ALLOWED_HOSTS = ['jangolibproduction.herokuapp.com', 'jangoliblive.herokuapp.com']
 
 
 # Application definition
